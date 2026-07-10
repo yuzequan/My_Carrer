@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>余生 - 高级产品经理 | 10年B端SaaS与AI产品经验</title>
+    <meta name="description" content="余生，拥有10年经验的高级产品经理，深耕B端SaaS系统搭建与AI产品落地，覆盖心理服务、音视频、在线教育等多行业。">
+    <meta name="keywords" content="产品经理, 高级产品经理, B端SaaS, AI产品, 在线教育, 心理服务">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #DBEAFE;
+            --secondary: #1E293B;
+            --accent: #F59E0B;
+            --text: #334155;
+            --text-light: #64748B;
+            --text-lighter: #94A3B8;
+            --bg: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --bg-dark: #F1F5F9;
+            --border: #E2E8F0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--secondary);
+            margin: 6px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-light) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 560px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: var(--bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-lighter);
+        }
+
+        .avatar-decoration {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: var(--bg);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--bg-dark);
+            color: var(--text);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 48px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 48px;
+            margin-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border: 3px solid var(--bg);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--primary-light);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+            top: 20px;
+        }
+
+        .timeline-content {
+            background: var(--bg);
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-company {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-role {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .timeline-desc ul li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-desc ul li {
+            padding-left: 0;
+            padding-right: 16px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-desc ul li::before {
+            left: auto;
+            right: 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-info {
+            padding: 28px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .project-company {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .project-link svg {
+            transition: var(--transition);
+        }
+
+        .project-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: var(--bg);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .education-school {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .education-major {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: var(--bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: var(--text-lighter);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-lighter);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-stats {
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .avatar-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 48px;
+                padding-right: 0;
+                margin-left: 0;
+                text-align: left;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 12px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-desc ul li {
+                padding-left: 16px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-desc ul li::before {
+                left: 0;
+                right: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <div class="nav-logo">余生</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#experience">经历</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#education">教育</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <div class="hero-badge">🔥 开放求职机会</div>
+                    <h1 class="hero-name">余生</h1>
+                    <p class="hero-title">高级产品经理 | B端SaaS & AI产品专家</p>
+                    <p class="hero-desc">
+                        拥有10年经验的高级产品经理，深耕B端SaaS系统搭建与AI产品落地，覆盖心理服务、音视频、在线教育等多行业。主导多个从0到1的产品规模化落地，累计服务用户超百万、创造营收超千万。
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">年经验</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">家企业</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30K+</div>
+                            <div class="stat-label">AI产品用户</div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">查看项目作品 →</a>
+                        <a href="mailto:1225680461@qq.com" class="btn btn-outline">📧 联系我</a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <div class="avatar-wrapper">
+                        <!-- 替换为你的照片路径 -->
+                        <div class="avatar">👤</div>
+                        <div class="avatar-decoration">10年+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">专业技能</span>
+                <h2 class="section-title">核心能力</h2>
+                <p class="section-desc">覆盖产品全生命周期的能力体系，从战略规划到落地执行</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">🎯</div>
+                    <h3>产品能力</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">B端SaaS系统规划</span>
+                        <span class="skill-tag">从0到1产品搭建</span>
+                        <span class="skill-tag">C端用户增长</span>
+                        <span class="skill-tag">需求管理与优先级</span>
+                        <span class="skill-tag">团队管理（30人）</span>
+                        <span class="skill-tag">产研流程规范化</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI产品能力</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">大模型应用落地</span>
+                        <span class="skill-tag">ChatBot智能客服</span>
+                        <span class="skill-tag">RAG检索增强生成</span>
+                        <span class="skill-tag">Agent多智能体协作</span>
+                        <span class="skill-tag">AIGC内容生成</span>
+                        <span class="skill-tag">数字人技术</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">📈</div>
+                    <h3>运营与增长</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">微信生态运营</span>
+                        <span class="skill-tag">CRM系统搭建</span>
+                        <span class="skill-tag">用户标签体系</span>
+                        <span class="skill-tag">数据中台建设</span>
+                        <span class="skill-tag">营销工具体系</span>
+                        <span class="skill-tag">私域流量运营</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">🏢</div>
+                    <h3>行业经验</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">心理服务</span>
+                        <span class="skill-tag">音视频SaaS</span>
+                        <span class="skill-tag">在线教育</span>
+                        <span class="skill-tag">教培行业</span>
+                        <span class="skill-tag">金融行业</span>
+                        <span class="skill-tag">医疗培训</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">工作经历</span>
+                <h2 class="section-title">职业轨迹</h2>
+                <p class="section-desc">10年产品从业经验，横跨多个行业与业务形态</p>
+            </div>
+            <div class="timeline">
+                <!-- 壹心理 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024.06 - 至今</span>
+                        <h3 class="timeline-company">壹心理（广州人心网络）</h3>
+                        <p class="timeline-role">高级产品经理 · 产研15人团队</p>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>作为「咨询师之家」平台产品负责人，统筹APP、小程序、Web三端产品规划</li>
+                                <li>主导B端咨询师管理SaaS系统从0搭建，入驻咨询师超2,000人</li>
+                                <li>上线AI练习室，累计销售超30,000单</li>
+                                <li>ChatBot智能客服月均承接20万+咨询，人工介入率降低60%</li>
+                                <li>AI智能监课使人工监课成本下降80%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 保利威 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021.09 - 2023.09</span>
+                        <h3 class="timeline-company">保利威（易方信息科技）</h3>
+                        <p class="timeline-role">产品经理 · 产研25人团队</p>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>负责教培SaaS产品线规划，统筹直播、点播、AI三条产品线</li>
+                                <li>从0到1建设AI产品体系，使保利威成为业内首家AI功能SaaS化音视频公司</li>
+                                <li>获行业标杆客户认可：建设银行、华医网、环球优路、国家开放大学</li>
+                                <li>获2022年最佳团队奖，个人获公司业绩二等功*2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 掌门教育 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021.03 - 2021.09</span>
+                        <h3 class="timeline-company">掌门1对1（上海掌门教育）</h3>
+                        <p class="timeline-role">高级产品经理P6 · 产研30人团队</p>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>从0搭建"掌门Ai1对1"学科辅导项目（PC端、APP端及后台）</li>
+                                <li>三个月完成项目客户端功能，课程到课率92%，降低供给端成本30%</li>
+                                <li>搭建企微SCRM系统，覆盖公司几万人业务团队，KP满意度100%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 荷小鱼 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019.07 - 2021.02</span>
+                        <h3 class="timeline-company">荷小鱼（广州沐思信息/千聊）</h3>
+                        <p class="timeline-role">产品经理</p>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>从0到1搭建"荷小鱼轻课"平台（拼团、分销、售课商城等）</li>
+                                <li>项目月营收半年达百万，每月输送高质量转化例子5,000+</li>
+                                <li>搭建CRM系统、标签机制、数据中台</li>
+                                <li>自研课程产出速度巅峰可达8门/月</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 小灯塔 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2016.07 - 2019.05</span>
+                        <h3 class="timeline-company">小灯塔学堂/画啦啦（广州六一信息）</h3>
+                        <p class="timeline-role">产品经理</p>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>主导团购分销体系策划，一年内180万+用户净增，付费率近90%</li>
+                                <li>支撑项目组月营收1,000万的持续达标</li>
+                                <li>搭建用户分层体系，串联微信矩阵100万+用户</li>
+                                <li>策划督学小程序，降低社群运营端教学人力成本约20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-alt" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">项目作品</span>
+                <h2 class="section-title">精选案例</h2>
+                <p class="section-desc">部分代表性项目的产品设计Demo，点击可查看详细交互原型</p>
+            </div>
+            <div class="projects-grid">
+                <!-- 项目1 -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        🎓
+                        <span class="project-badge">C端</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">师生互联与视频教学系统</h3>
+                        <p class="project-company">壹心理项目</p>
+                        <p class="project-desc">打造咨询师与来访者之间的在线视频教学与互动平台，支持实时视频、课程管理、学习进度追踪等核心功能，实现心理咨询服务的线上化交付。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">视频教学</span>
+                            <span class="project-tag">实时互动</span>
+                            <span class="project-tag">课程管理</span>
+                        </div>
+                        <a href="https://u.pmdaniu.com/GvV2L" target="_blank" rel="noopener noreferrer" class="project-link">
+                            查看原型Demo →
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 项目2 -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        📚
+                        <span class="project-badge">C端</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">幼儿拼音智能课件系统</h3>
+                        <p class="project-company">荷小鱼项目</p>
+                        <p class="project-desc">面向学龄前儿童的拼音学习产品，结合AI语音识别与互动游戏化设计，打造沉浸式拼音学习体验，支持家长端学习报告查看。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AI语音识别</span>
+                            <span class="project-tag">游戏化学习</span>
+                            <span class="project-tag">少儿教育</span>
+                        </div>
+                        <a href="https://u.pmdaniu.com/ANY23" target="_blank" rel="noopener noreferrer" class="project-link">
+                            查看原型Demo →
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 项目3 -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        🏥
+                        <span class="project-badge">B端</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">咨询师管理SaaS系统</h3>
+                        <p class="project-company">壹心理项目</p>
+                        <p class="project-desc">B端咨询师管理SaaS系统，覆盖机构管理、咨询师入驻、资质认证、结算系统、服务交付等核心模块，实现从C端到B端+C端双轮驱动的业务模式升级。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">SaaS系统</span>
+                            <span class="project-tag">机构管理</span>
+                            <span class="project-tag">结算系统</span>
+                        </div>
+                        <a href="https://u.pmdaniu.com/ANY23" target="_blank" rel="noopener noreferrer" class="project-link">
+                            查看原型Demo →
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 项目4 -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        📺
+                        <span class="project-badge">B端</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">台州视频直播系统</h3>
+                        <p class="project-company">易方项目（保利威）</p>
+                        <p class="project-desc">为台州地区定制的企业级视频直播解决方案，支持大规模直播、互动连麦、数据统计、回放管理等功能，满足企业培训、营销等多场景需求。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">视频直播</span>
+                            <span class="project-tag">企业定制</span>
+                            <span class="project-tag">数据统计</span>
+                        </div>
+                        <a href="https://u.pmdaniu.com/vlpz0" target="_blank" rel="noopener noreferrer" class="project-link">
+                            查看原型Demo →
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">教育背景</span>
+                <h2 class="section-title">学历信息</h2>
+                <p class="section-desc">持续学习，不断精进</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="education-icon">🎓</div>
+                    <h3 class="education-school">广东工业大学</h3>
+                    <p class="education-major">工商管理硕士（MBA）</p>
+                    <p class="education-date">2023.09 - 2026.07</p>
+                </div>
+                <div class="education-card fade-in">
+                    <div class="education-icon">💻</div>
+                    <h3 class="education-school">广东技术师范学院</h3>
+                    <p class="education-major">网络工程</p>
+                    <p class="education-date">2012.09 - 2016.07</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">联系方式</span>
+                <h2 class="section-title">与我联系</h2>
+                <p class="section-desc">期待与您交流合作</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info fade-in">
+                    <h3>联系信息</h3>
+                    <p>如果您对我的经历感兴趣，或有合适的工作机会，欢迎随时联系我。我通常会在24小时内回复。</p>
+                    <ul class="contact-list">
+                        <li>
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <span class="contact-label">电子邮箱</span>
+                                <a href="mailto:1225680461@qq.com" class="contact-value">1225680461@qq.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <span class="contact-label">联系电话</span>
+                                <a href="tel:13570380453" class="contact-value">135 7038 0453</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-text">
+                                <span class="contact-label">求职状态</span>
+                                <span class="contact-value">开放求职机会</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <span class="contact-label">所在城市</span>
+                                <span class="contact-value">广州</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3 style="margin-bottom: 24px; font-size: 1.25rem; color: var(--secondary);">发送消息</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" name="company" placeholder="请输入您的公司名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" name="message" placeholder="请输入您想说的话..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2024 余生 · 高级产品经理</p>
+            <ul class="footer-links">
+                <li><a href="mailto:1225680461@qq.com">邮箱</a></li>
+                <li><a href="tel:13570380453">电话</a></li>
+                <li><a href="#home">返回顶部</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('感谢您的留言！我会尽快回复您。');
+            contactForm.reset();
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
